@@ -13,7 +13,7 @@ class App:
             rootNode = ET.fromstring(read_data)
 
             self.tree = Treeview(root)
-            self.tree.pack(expand=True, fill='y')
+            self.tree.pack(expand=True, fill='both')
             self.walk_dict(rootNode)
         
 
@@ -22,8 +22,8 @@ class App:
         for child in d:
             print(child.tag, child.attrib)
 
-            node_name = "<" + child.tag + " " + self.create_xml_attribute_string(child.attrib) + ">"
-
+            node_name =  child.tag + " " + self.create_xml_attribute_string(child.attrib) 
+            
             # With None a unique id is generated automatically.
             item = self.tree.insert(parent, 'end', None, text=node_name)
 
